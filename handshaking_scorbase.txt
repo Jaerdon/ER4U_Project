@@ -1,0 +1,37 @@
+Set Variable ITERATION  = 0
+Set Variable POS  = 4
+Go to Position 99 Speed 50 (%)
+SINGLERUN:
+Turn Off Output 1
+Open Gripper
+Go to Position 13 Fast
+Go Linear to Position 3 Speed 50 (%)
+Close Gripper
+Go Linear to Position 13 Speed 50 (%)
+Go to Position 12 Fast
+Wait Until Digital Input 1 is ON
+Go Linear to Position 11 Fast
+Go Linear to Position 1 Speed 50 (%)
+Turn On Output 1
+Open Gripper
+Wait Until Digital Input 1 is OFF
+Go Linear to Position 11 Fast
+Go to Position 12 Fast
+Turn Off Output 1
+Wait Until Digital Input 1 is ON
+Go to Position 11 Fast
+Go Linear to Position 1 Speed 50 (%)
+Close Gripper
+Turn On Output 1
+Wait Until Digital Input 1 is OFF
+Go Linear to Position 11 Fast
+Go to Position 12 Fast
+Go to Position 44 Fast
+Go to Position POS Speed 50 (%)
+Set Variable POS  = POS+10
+Open Gripper
+Go to Position 44 Fast
+Set Variable ITERATION  = ITERATION + 1
+If ITERATION  < 4 Jump to SINGLERUN
+Go to Position 99 Speed 75 (%)
+Turn Off Output 1
